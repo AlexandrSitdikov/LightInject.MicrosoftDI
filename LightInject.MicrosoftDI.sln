@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightInject.MicrosoftDI", "LightInject.MicrosoftDI\LightInject.MicrosoftDI.csproj", "{91F91921-D67C-4581-A910-9A2D94E823AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightInject.MicrosoftDI.SampleAspNetCore", "LightInject.MicrosoftDI.SampleAspNetCore\LightInject.MicrosoftDI.SampleAspNetCore.csproj", "{3857F95D-1D1E-44DC-861F-7B9346021D47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91F91921-D67C-4581-A910-9A2D94E823AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F91921-D67C-4581-A910-9A2D94E823AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F91921-D67C-4581-A910-9A2D94E823AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F91921-D67C-4581-A910-9A2D94E823AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3857F95D-1D1E-44DC-861F-7B9346021D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3857F95D-1D1E-44DC-861F-7B9346021D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3857F95D-1D1E-44DC-861F-7B9346021D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3857F95D-1D1E-44DC-861F-7B9346021D47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37772019-8FBD-408D-A814-2C30FF78C2F7}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Alexandr Sitdikov</Authors>
+    <Copyright>Alexandr Sitdikov</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/AlexandrSitdikov/LightInject.MicrosoftDI/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/AlexandrSitdikov/LightInject.MicrosoftDI</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Ioc Dependency-Injection dependencyinjection di Inversion-of-Control aspnetcore</PackageTags>
+    <Description>LightInject wrapper that implements services Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.DependencyInjection.IServiceProvider</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LightInject" Version="5.4.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>
