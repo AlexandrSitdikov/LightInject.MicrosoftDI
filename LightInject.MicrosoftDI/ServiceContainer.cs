@@ -8,32 +8,19 @@
 
     public partial class ServiceContainer : LightInject.ServiceContainer, IServiceContainer
     {
+        [ThreadStatic]
+        private static VarianceFilter varianceFilterConfig;
+
         private IServiceCollection serviceDescriptors;
         private VarianceFilter varianceFilter;
 
-        private ServiceContainer(IServiceCollection serviceDescriptors, VarianceFilter varianceFilter, ContainerOptions options) : base(options)
+        public ServiceContainer(IServiceCollection serviceDescriptors, ContainerOptions options = null) : base(ApplyOptions(options))
         {
-            this.varianceFilter = varianceFilter;
+            this.varianceFilter = varianceFilterConfig;
             this.serviceDescriptors = serviceDescriptors ?? throw new ArgumentNullException(nameof(serviceDescriptors));
 
-            this.RegisterInstance<IServiceCollection>(this);
-
             this.PropertyDependencySelector = new PropertyDependencySelector(this.PropertyDependencySelector);
-        }
-
-        public static ServiceContainer Create(IServiceCollection serviceDescriptors, ContainerOptions options = null)
-        {
-            if (options == null)
-            {
-                options = new ContainerOptions();
-            }
-
-            ServiceContainer container = null;
-            var varianceFilter = new VarianceFilter(options.VarianceFilter);
-
-            options.VarianceFilter = varianceFilter.Filter;
-
-            return container = new ServiceContainer(serviceDescriptors, varianceFilter, options);
+            this.RegisterInstance<IServiceCollection>(this);
         }
 
         public IServiceContainer CreateServiceProvider()
@@ -44,6 +31,19 @@
         public object GetService(Type serviceType)
         {
             return this.GetInstance(serviceType);
+        }
+
+        private static ContainerOptions ApplyOptions(ContainerOptions options)
+        {
+            if (options == null)
+            {
+                options = new ContainerOptions();
+            }
+
+            varianceFilterConfig = new VarianceFilter(options.VarianceFilter);
+            options.VarianceFilter = varianceFilterConfig.Filter;
+
+            return options;
         }
     }
 }

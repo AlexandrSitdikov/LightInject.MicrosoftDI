@@ -11,7 +11,7 @@
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // Create Container wrapper over IServiceCollection
-            var container = ServiceContainer.Create(services);
+            var container = new ServiceContainer(services);
             container.RegisterInstance<IServiceContainer>(container);
 
             // Configurring container
