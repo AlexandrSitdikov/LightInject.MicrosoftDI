@@ -19,18 +19,21 @@
 
         public IEnumerable<PropertyDependency> Execute(Type type)
         {
-            if (type.IsGenericType)
+            if (!type.IsDefined(typeof(PropertyInjectionAttribute), true))
             {
-                if (this.ignoredGenericTypes.Contains(type.GetGenericTypeDefinition()))
+                if (type.IsGenericType)
                 {
-                    return this.empty;
+                    if (this.ignoredGenericTypes.Contains(type.GetGenericTypeDefinition()))
+                    {
+                        return this.empty;
+                    }
                 }
-            }
-            else
-            {
-                if (this.ignoredTypes.Contains(type))
+                else
                 {
-                    return this.empty;
+                    if (this.ignoredTypes.Contains(type))
+                    {
+                        return this.empty;
+                    }
                 }
             }
 

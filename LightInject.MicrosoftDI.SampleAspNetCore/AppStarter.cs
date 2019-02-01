@@ -47,7 +47,9 @@
 
             public void Init()
             {
-                this.Container.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                this.Container.AddMvc()
+                    .AddControllersAsServices()
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
                 this.Container.Register<Class1>();
             }
         }

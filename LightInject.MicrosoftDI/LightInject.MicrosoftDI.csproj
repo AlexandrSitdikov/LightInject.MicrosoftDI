@@ -10,7 +10,7 @@
     <PackageTags>Ioc Dependency-Injection dependencyinjection di Inversion-of-Control aspnetcore</PackageTags>
     <Description>LightInject wrapper that implements services Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.DependencyInjection.IServiceProvider</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,20 +2,17 @@
 {
     using Microsoft.AspNetCore.Mvc;
 
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    public class PropertiesController : BasePropertiesController
     {
         private AppStarter.Class1 class1;
 
-        public ValuesController(AppStarter.Class1 class1) : base()
+        public PropertiesController(AppStarter.Class1 class1) : base()
         {
             this.class1 = class1;
         }
 
         public AppStarter.Class2 Class2 { get; set; }
 
-        // GET api/values
         [HttpGet]
         public object Get()
         {
