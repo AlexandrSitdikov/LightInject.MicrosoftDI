@@ -1,11 +1,12 @@
 ﻿namespace LightInject.MicrosoftDI.SampleAspNetCore
 {
+    using System;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.DependencyInjection;
 
     public class AppStarter
     {
-        public static void Start(IServiceContainer container)
+        public static void Init(IServiceContainer container)
         {
             container.Register<IModule, Module1>(nameof(Module1));
             container.Register<IModule, Module2>(nameof(Module2));
@@ -13,6 +14,25 @@
             foreach (var module in container.GetAllInstances<IModule>())
             {
                 module.Init();
+            }
+        }
+
+        public static void Start(IServiceContainer container)
+        {
+            var cls1 = container.GetInstance<AppStarter.Class1>();
+
+            if (cls1.ContructableClass2 != null &&
+                cls1.ContructableClass2.PropertyClass3 != null &&
+                cls1.ContructableClass2.ContructableClass3 != null &&
+                cls1.PropertyClass2 != null &&
+                cls1.PropertyClass2.PropertyClass3 != null &&
+                cls1.PropertyClass2.ContructableClass3 != null)
+            {
+                Console.WriteLine("Container is valid");
+            }
+            else
+            {
+                throw new ApplicationException();
             }
         }
 
