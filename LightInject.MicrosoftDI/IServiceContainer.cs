@@ -6,5 +6,6 @@
 
     public interface IServiceContainer : LightInject.IServiceContainer, IServiceCollection, IServiceProvider
     {
+        IServiceContainer CreateServiceProvider();
     }
 }
