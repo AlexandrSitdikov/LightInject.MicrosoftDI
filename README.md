@@ -30,3 +30,12 @@ public class Startup
         }
     }
 ```
+
+For the force properties injection just add `PropertyInjectionAttribute`:
+```
+    [PropertyInjection]
+    public abstract class BaseController : Controller
+    {
+        public IMyService Service { get; set; }
+    }
+```
