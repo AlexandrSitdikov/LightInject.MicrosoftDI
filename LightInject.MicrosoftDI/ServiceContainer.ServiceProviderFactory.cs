@@ -134,7 +134,7 @@
         protected virtual Func<IServiceProvider, IEnumerable<T>> MultipleServicesFactory<T>(IEnumerable<ServiceDescriptor> serviceDescriptors)
         {
             return new Func<IServiceProvider, IEnumerable<T>>(x =>
-            serviceDescriptors.Select(r => (T)(r.ImplementationInstance ?? this.Create(r.ImplementationType) ?? r.ImplementationFactory(x))));
+            serviceDescriptors.Select(r => (T)(r.ImplementationInstance ?? (r.ImplementationType == null ? null : this.Create(r.ImplementationType)) ?? r.ImplementationFactory(x))));
         }
     }
 }
